@@ -19,7 +19,7 @@ class BinomialToDictTest(unittest.TestCase):
                   'hybrid': False,
                   'author': 'Gleason',
                   }
-        self.assertEquals(result, expect)
+        self.assertEquals(result,expect)
 
     def test_binomial_to_dict__with_composite_author(self):
         result = taxonlist2json.binomial_to_dict(
