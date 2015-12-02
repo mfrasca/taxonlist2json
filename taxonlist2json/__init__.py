@@ -15,6 +15,9 @@ def binomial_to_dict(input):
 
     import HTMLParser
     h = HTMLParser.HTMLParser()  # rewrite with functor
+
+
+
     result['author'] = h.unescape(values[2])
 
     return result
