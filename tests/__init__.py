@@ -15,6 +15,7 @@ class ConverterTest(unittest.TestCase):
         'returns only the relevant lines'
         raise SkipTest("not tested yet")
 
+    
     def test_line_to_binomial_with_simple_author(self):
         s = ' Abuta velutina Gleason'
         result = taxonlist2json.line_to_binomial(s)

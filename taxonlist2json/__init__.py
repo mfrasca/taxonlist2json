@@ -44,8 +44,10 @@ def element_to_lines(input):
     ## remove empty lines
     lines = [i for i in lines if i != '']
     ## we definitely use the first non-empty line
-    result = [lines[0]]
+    result1 = [lines[0]]
+    result1 = line_to_binomial(lines[0])
     ## and the second, if it's a synonym definition
     if lines[1].find('=') != -1:
         result.append(lines[1])
-    return result
+	result2 = synonym_line_to_objects_pair(lines[1])
+    return (result1, result2)
