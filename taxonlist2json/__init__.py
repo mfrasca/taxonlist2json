@@ -153,7 +153,10 @@ def ars_grin_genus_to_dict(input):
     lines = [i.strip() for i in input.split('\n')]
     if filter(None, map(reject_pattern.match, lines)):
         return None
-    taxon_match = filter(None, map(taxon_pattern.match, lines))[0]
+    try:
+        taxon_match = filter(None, map(taxon_pattern.match, lines))[0]
+    except IndexError:
+        return None
     synonym_match = (filter(None, map(synonym_pattern.match, lines)) +
                      [None])[0]
     family_match = filter(None, map(family_pattern.match, lines))[0]
