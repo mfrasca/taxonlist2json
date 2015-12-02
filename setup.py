@@ -9,7 +9,7 @@ config = {
     'author': 'Mario Frasca',
     'url': 'URL to get it at.',
     'download_url': 'Where to download it.',
-    'author_email': 'mario@anche.no',
+    'author_email': 'gucho_tznpisco@hotmail.com',
     'version': '0.1',
     'install_requires': ['nose'],
     'packages': ['taxonlist2json'],
