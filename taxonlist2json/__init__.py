@@ -16,6 +16,7 @@ def line_to_binomial(input):
 def synonym_line_to_objects_pair(input):
     '''compute pair where first element is synonym and second accepted taxon
     '''
+
     first, second = input.split('=')
     synonym = line_to_binomial(first)
     accepted = line_to_binomial(second)

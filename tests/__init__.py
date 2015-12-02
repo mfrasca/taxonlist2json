@@ -17,6 +17,7 @@ class ConverterTest(unittest.TestCase):
 
     def test_line_to_binomial_with_simple_author(self):
         s = ' Abuta velutina Gleason'
+
         result = taxonlist2json.line_to_binomial(s)
         expect = {'object': 'taxon',
                   'rank': 'species',
