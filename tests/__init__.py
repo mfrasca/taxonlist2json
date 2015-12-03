@@ -17,6 +17,7 @@ class ConverterTest(unittest.TestCase):
 
     def test_line_to_binomial_with_simple_author(self):
         s = ' Abuta velutina Gleason'
+
         result = taxonlist2json.line_to_binomial(s)
         expect = {'object': 'taxon',
                   'rank': 'species',
@@ -46,7 +47,7 @@ class ConverterTest(unittest.TestCase):
         result = taxonlist2json.line_to_binomial(s)
         expect = {'ht-epithet': 'Abutilon',
                   'rank': 'species',
-                  'author': "(L'Hér.) Sweet",
+                  'author': u"(L'Hér.) Sweet",
                   'hybrid': False,
                   'object': 'taxon',
                   'epithet': 'nudiflorum',
@@ -54,4 +55,3 @@ class ConverterTest(unittest.TestCase):
         self.assertEquals(result, expect)
 
 
-    
