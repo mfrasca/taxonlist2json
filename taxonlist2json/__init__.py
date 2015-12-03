@@ -8,7 +8,9 @@ def line_to_binomial(input):
     values = input.strip().split(' ', 2)
     result['ht-epithet'] = values[0]
     result['epithet'] = values[1]
-    result['author'] = values[2]
+    import HTMLParser
+    a = HTMLParser.HTMLParser() 
+    result['author'] = a.unescape(values[2])
 
 
 
