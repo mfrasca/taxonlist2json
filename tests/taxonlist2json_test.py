@@ -196,8 +196,8 @@ class ImportArsGrinFamily(unittest.TestCase):
                                }
                   }
         self.assertEquals(result, expect)
-        1/0
-
+        print result, expect
+        
     def test_import_ars_grin_family__illegitimus(self):
         s = '''<i>Abaminaceae</i> J. Agardh, nom. illeg.</h1>
     <h2>Synonym of <a href='756'><i>Nartheciaceae</i> Fr. ex Bjurzon</a></h2>'''
