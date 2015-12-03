@@ -149,6 +149,7 @@ Reference: Ritter, F., 1981: 1489; Hunt, D., 1992: 89.
                   }
         self.assertEquals(result, expect)
 
+
     def test_whole_block_to_taxon_object__without_synonym(self):
         s = '''\
 
@@ -171,7 +172,6 @@ Osmorhiza mexicana Griseb.
                   'hybrid': False,
                   }
         self.assertEquals(result, expect)
-
 
 class ImportArsGrinFamily(unittest.TestCase):
     def test_import_ars_grin_family__simple(self):
@@ -196,7 +196,7 @@ class ImportArsGrinFamily(unittest.TestCase):
                                }
                   }
         self.assertEquals(result, expect)
-        1/0
+        
 
     def test_import_ars_grin_family__illegitimus(self):
         s = '''<i>Abaminaceae</i> J. Agardh, nom. illeg.</h1>
