@@ -1,3 +1,5 @@
+
+
 def line_to_binomial(input):
     '''compute dictionary equivalent to input
     '''
@@ -8,7 +10,9 @@ def line_to_binomial(input):
     values = input.strip().split(' ', 2)
     result['ht-epithet'] = values[0]
     result['epithet'] = values[1]
-    result['author'] = values[2]
+    import HTMLParser
+    tilde = HTMLParser.HTMLParser()
+    result['author'] = tilde.unescape(values[2])
 
     return result
 
@@ -44,7 +48,7 @@ def element_to_lines(input):
     ## remove empty lines
     lines = [i for i in lines if i != '']
     ## we definitely use the first non-empty line
-    result1 = [lines[0]]
+    result = [lines[0]]
     result1 = line_to_binomial(lines[0])
     ## and the second, if it's a synonym definition
     if lines[1].find('=') != -1:

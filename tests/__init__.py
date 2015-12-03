@@ -47,7 +47,7 @@ class ConverterTest(unittest.TestCase):
         result = taxonlist2json.line_to_binomial(s)
         expect = {'ht-epithet': 'Abutilon',
                   'rank': 'species',
-                  'author': "(L'Hér.) Sweet",
+                  'author': u"(L'Hér.) Sweet",
                   'hybrid': False,
                   'object': 'taxon',
                   'epithet': 'nudiflorum',
