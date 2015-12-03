@@ -46,7 +46,7 @@ class ConverterTest(unittest.TestCase):
         result = taxonlist2json.line_to_binomial(s)
         expect = {'ht-epithet': 'Abutilon',
                   'rank': 'species',
-                  'author': "(L'Hér.) Sweet",
+                  'author':u"(L'Hér.) Sweet",
                   'hybrid': False,
                   'object': 'taxon',
                   'epithet': 'nudiflorum',
@@ -72,64 +72,64 @@ class ConverterTest(unittest.TestCase):
                    'ht-rank': 'genus'})
         self.assertEquals(result, expect)
 
-def test_translate_species_with_author(self):
-		"accept one string, return one value"
-		
-		input = """$
-				Psychotria thyrsiflora Ruiz & Pav. 
-				Psychotria thyrsiflora Ruiz & Pav. = Palicourea thyrsiflora (Ruiz & Pav.) DC.
-				Reference: FP 1365: 226. 
-			   $"""
-		#invoke the function we did not yet write
-		result=taxonlist2json.convert(input)
-		#the object we expect
-		expect = {"rank": "Species",
-			  "epithet": "thyrsiflora",
-			  "ht-rank": "genus",
-			  "ht-epitheth": "Psychotria",
-			  "hybrid": "false",
-			  "author": "Ruiz & Pav."} # tambien lo vimos ayer
-		self.assertEquals(result, expect)
+    def test_translate_species_with_author(self):
+        "accept one string, return one value"
+        
+        input = """$
+                Psychotria thyrsiflora Ruiz & Pav. 
+    Psychotria thyrsiflora Ruiz & Pav. = Palicourea thyrsiflora (Ruiz & Pav.) DC.
+                Reference: FP 1365: 226. 
+               $"""
+        #invoke the function we did not yet write
+        result=taxonlist2json.convert(input)
+        #the object we expect
+        expect = {"rank": "Species",
+              "epithet": "thyrsiflora",
+              "ht-rank": "genus",
+              "ht-epitheth": "Psychotria",
+              "hybrid": "false",
+              "author": "Ruiz & Pav."} # tambien lo vimos ayer
+        self.assertEquals(result, expect)
 
-	def test_translate_species_with_author(self):
-			"accept one string, return one value"
-		
-			input = """$
-					Psychotria thyrsiflora Ruiz & Pav. 
-					Psychotria thyrsiflora Ruiz & Pav. = Palicourea thyrsiflora (Ruiz & Pav.) DC.
-					Reference: FP 1365: 226. 
-				   $"""
-			#invoke the function we did not yet write
-			result=taxonlist2json.convert(input)
-			#the object we expect
-			expect = {"rank": "Species",
-				  "epithet": "thyrsiflora",
-				  "ht-rank": "genus",
-				  "ht-epitheth": "Psychotria",
-				  "hybrid": "false",
-				  "author": "Ruiz & Pav.",
-				"accepted":{
-					   "rank": "Species",
-  	    				   "epithet": "thyrsiflora",
-				  	   "ht-rank": "genus",
-				     	   "ht-epitheth": "Palicourea",
-					   "hybrid": "false",
-				 	   "author": "(Ruiz & Pav.) DC."
-						}
-				  } # tambien lo vimos ayer
-			self.assertEquals(result, expect)
+    def test_translate_species_with_author(self):
+        "accept one string, return one value"
+        
+        input = """
+                    Psychotria thyrsiflora Ruiz & Pav. 
+                    Psychotria thyrsiflora Ruiz & Pav. = Palicourea thyrsiflora (Ruiz & Pav.) DC.
+                    Reference: FP 1365: 226. 
+                   """
+        #invoke the function we did not yet write
+        result=taxonlist2json.whole_block_to_taxon_object(input)
+        #the object we expect
+            
+        expect =({'ht-epithet': 'Psychotria', 
+                  'rank': 'species',
+                  'author': 'Ruiz & Pav.',
+                  'hybrid': False,
+                  'object': 'taxon', 
+                  'epithet': 'thyrsiflora',
+                  'ht-rank': 'genus'},
+                 {'ht-epithet': 'Palicourea',
+                  'rank': 'species',
+                  'author': '(Ruiz & Pav.) DC.',
+                  'hybrid': False,
+                  'object': 'taxon',
+                  'epithet': 'thyrsiflora',
+                  'ht-rank': 'genus'})
+        self.assertEquals(result, expect)
 
-	
+    
 from nose.tools import *
 
 def setup():
-	print "SETUP!"
+    print "SETUP!"
 
 def teardown():
-	print "TEAR DOWN!"
+    print "TEAR DOWN!"
 
 def test_basic():
-	print "I RAN!"
+    print "I RAN!"
 
 
     
