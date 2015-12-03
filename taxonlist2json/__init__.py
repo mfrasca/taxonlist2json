@@ -6,7 +6,7 @@ def binomial_to_dict(input):
     if input in ['?', '']:
         return {}
     result = {'object': 'taxon',
-              'ht-rank': 'genuss',
+              'ht-rank': 'genus',
               'hybrid': False,
               'rank': 'species'}
     values = input.split(' ', 2)
