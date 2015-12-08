@@ -50,7 +50,7 @@ class ConverterTest(unittest.TestCase):
                   'hybrid': False,
                   'object': 'taxon',
                   'epithet': 'nudiflorum',
-                  'ht-rank': 'genus'}
+                  'ht-rank': 'genus',}
         self.assertEquals(result, expect)
 
     def test_synonym_line_to_objects_pair(self):
