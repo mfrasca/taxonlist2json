@@ -53,25 +53,19 @@ class ConverterTest(unittest.TestCase):
                   'ht-rank': 'genus'}
         self.assertEquals(result, expect)
 
-    def test_synonym_line_to_objects_pair(self):
-        s = "Abutilon pulverulentum Ulbrich = "\
-            "Sidasodes jamesonii (Baker f. ) Fryxell & Fuertes"
+   def test_binomial_to_dict__varietas_with_autor(self):
+    s="Abutilon amplissimum var. subpeltata Ktze."
 
-        result = taxonlist2json.synonym_line_to_objects_pair(s)
+    result = taxonlist2json.line_to_binomial_to_dict(s)
 
-        expect = ({'ht-epithet': 'Abutilon', 'rank': 'species',
-                   'author': 'Ulbrich', 'hybrid': False,
-                   'object': 'taxon', 'epithet': 'pulverulentum',
-                   'ht-rank': 'genus'},
-                  {'ht-epithet': 'Sidasodes',
-                   'rank': 'species',
-                   'author': '(Baker f. ) Fryxell & Fuertes',
-                   'hybrid': False,
-                   'object': 'taxon',
-                   'epithet': 'jamesonii',
-                   'ht-rank': 'genus'})
-        self.assertEquals(result, expect)
-
-
+    expect = {'object': 'taxon',
+              'rank': 'varietas',
+              'epithet': 'subpeltata',
+              'ht-rank': 'genus',
+              'ht-epithet': 'amplissimum',
+              'hybrid': False,
+              'author': 'Ktze',
+          }
+          self.assertEquals(result, expect)
 
     
