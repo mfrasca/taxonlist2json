@@ -146,7 +146,7 @@ Reference: Ritter, F., 1981: 1489; Hunt, D., 1992: 89.
                                'author': '(Vaupel) Buxb.',
                                'hybrid': False,
                                },
-                  }
+                  } 
         self.assertEquals(result, expect)
 
 
