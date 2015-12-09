@@ -9,7 +9,7 @@ config = {
     'author': 'Victor Cobos',
     'url': 'URL to get it at.',
     'download_url': 'Where to download it.',
-    'author_email': 'mario@anche.no',
+    'author_email': 'vcobosp@hotmail.com',
     'version': '0.1',
     'install_requires': ['nose'],
     'packages': ['taxonlist2json'],
