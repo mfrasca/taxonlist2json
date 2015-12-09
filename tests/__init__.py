@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+<<<<<<< HEAD
 
 import unittest
 from unittest import SkipTest
@@ -87,3 +88,8 @@ class ConverterTest(unittest.TestCase):
         self.assertEquals(result, expect)
 
     
+=======
+# 
+# this file is here just to make Python understand the folder corresponds to
+# a module.
+>>>>>>> e9ff63b1ee4b203b19181b8ea7ba05625927c6f3
