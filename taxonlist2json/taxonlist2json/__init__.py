@@ -2,7 +2,7 @@ def line_to_binomial(input):
     '''compute dictionary equivalent to input
     '''
     result = {'object': 'taxon',
-              'ht-rank': 'genus',
+              'ht-rank': 'genussss',
               'hybrid': False,
               'rank': 'species'}
     values = input.strip().split(' ', 2)
