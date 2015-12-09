@@ -52,3 +52,18 @@ def element_to_lines(input):
     if lines[1].find('=') != -1:
         result.append(lines[1])
     return result
+def binomial_to_dict(input):
+    result = {'object': 'taxon',
+              'ht-rank': 'species',
+              'hybrid': False,
+              'rank': 'varietas'}
+    values = input.strip().split(' ', 2)
+    print values[2]
+    result['ht-epithet'] = values[0]
+    result['epithet'] = values[1]
+    import HTMLParser
+    var = HTMLParser.HTMLParser()
+    result['author'] = var.unescape(values[2])
+    print result['author']
+    return result
+    
