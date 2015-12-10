@@ -7,7 +7,23 @@ import taxonlist2json
 
 
 class BinomialToDictTest(unittest.TestCase):
+<<<<<<< HEAD
 class ConcertTest(unittest.Case)
+=======
+
+    def test_binomial_to_dict__varietas_with_author(self):
+        s = 'Abutilon amplissimum var. subpeltata Ktze.'
+        result = taxonlist2json.binomial_to_dict(s)
+        expect = {'object': 'taxon',
+                  'rank': 'varietas',  # should decide name of rank
+                  'ht-rank': 'species',
+                  'epithet': 'subpeltata',
+                  'ht-epithet': 'Abutilon amplissimum',  # COMMENT THIS
+                  'author': "Ktze.",
+                  }
+        self.assertEquals(result, expect)
+
+>>>>>>> e9ff63b1ee4b203b19181b8ea7ba05625927c6f3
     def test_binomial_to_dict__with_simple_author(self):
         s = ' Abuta velutina Gleason'
         result = taxonlist2json.binomial_to_dict(s)
@@ -209,7 +225,6 @@ class ImportArsGrinFamily(unittest.TestCase):
                                }
                   }
         self.assertEquals(result, expect)
-        1/0
 
     def test_import_ars_grin_family__illegitimus(self):
         s = '''<i>Abaminaceae</i> J. Agardh, nom. illeg.</h1>
