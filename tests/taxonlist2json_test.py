@@ -193,10 +193,10 @@ class ImportArsGrinFamily(unittest.TestCase):
                   'accepted': {'object': 'taxon',
                                'rank': 'family',
                                'epithet': 'Pinaceae',
-                               }
+                               } 
                   }
         self.assertEquals(result, expect)
-        1/0
+        
 
     def test_import_ars_grin_family__illegitimus(self):
         s = '''<i>Abaminaceae</i> J. Agardh, nom. illeg.</h1>
