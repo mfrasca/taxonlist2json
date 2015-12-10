@@ -11,7 +11,7 @@ class BinomialToDictTest(unittest.TestCase):
     def test_binomial_to_dict__with_simple_author(self):
         s = ' Abuta velutina Gleason'
         result = taxonlist2json.binomial_to_dict(s)
-        expect = {'object': 'taxon',
+        expect = {'object': 'taxones',
                   'rank': 'species',
                   'epithet': 'velutina',
                   'ht-rank': 'genus',
