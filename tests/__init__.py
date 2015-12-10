@@ -2,7 +2,6 @@
 
 import unittest
 from unittest import SkipTest
-
 import taxonlist2json
 
 
@@ -74,3 +73,15 @@ class ConverterTest(unittest.TestCase):
         self.assertEquals(result, expect)
 
     
+    def test_convierte_especie_variante(self):
+        s = 'Abutilon amplissimum var. subpeltata Ktze'
+
+        result = taxonlist2json.line_to_binomial(s)
+        expect = {'object': 'taxon',
+                  'rank': 'varietas',
+                  'epithet': 'subpeltata',
+                  'ht-rank': 'species',
+                  'ht-epithet': 'Abutilon amplissimum',
+                  'author': 'Ktze',
+                  }
+        self.assertEquals(result, expect)
