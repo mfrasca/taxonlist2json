@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from unittest import SkipTest
+#from unittest import SkipTest
 
 import taxonlist2json
 
