@@ -142,3 +142,18 @@ class BinomialToDictTest(unittest.TestCase):
                   'author': 'Ktze',
                   }
         self.assertEquals(result, expect)
+
+    def test_binomial_to_dict__varietas_with_autor(self):
+        s="Abutilon amplissimum var. subpeltata Ktze."
+
+        result = taxonlist2json.line_to_binomial_to_dict(s)
+
+        expect = {'object': 'taxon',
+                  'rank': 'varietas',
+                  'epithet': 'subpeltata',
+                  'ht-rank': 'genus',
+                  'ht-epithet': 'amplissimum',
+                  'hybrid': False,
+                  'author': 'Ktze',
+                  }
+        self.assertEquals(result, expect)
