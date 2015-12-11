@@ -5,7 +5,7 @@ except ImportError:
 
 config = {
     'description':
-    'convert a tropicos export to a Bauble importable json object',
+    'convert a tropicos export to a Bauble importable json object - probando mi primer commit :)',
     'author': 'Mario Frasca',
     'url': 'URL to get it at.',
     'download_url': 'Where to download it.',
