@@ -6,10 +6,10 @@ except ImportError:
 config = {
     'description':
     'convert a tropicos export to a Bauble importable json object',
-    'author': 'Yovi Diaz',
+    'author': 'Mario Frasca',
     'url': 'URL to get it at.',
     'download_url': 'Where to download it.',
-    'author_email': 'gucho_tznpisco@hotmail.com',
+    'author_email': 'mario@anche.no',
     'version': '0.1',
     'install_requires': ['nose'],
     'packages': ['taxonlist2json'],
