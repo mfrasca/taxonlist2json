@@ -1,4 +1,3 @@
-#hola phyton
 def binomial_to_dict(input):
     '''compute dictionary equivalent to input
     '''
@@ -22,6 +21,7 @@ def binomial_to_dict(input):
 def synonym_line_to_objects_pair(input):
     '''compute pair where first element is synonym and second accepted taxon
     '''
+
     first, second = input.split('=')
     synonym = binomial_to_dict(first)
     accepted = binomial_to_dict(second)
@@ -57,27 +57,10 @@ def element_to_lines(input):
     lines = [i for i in lines if i != '']
     ## we definitely use the first non-empty line
     result = [lines[0]]
-    result1 = line_to_binomial(lines[0])
     ## and the second, if it's a synonym definition
     if lines[1].find('=') != -1:
         result.append(lines[1])
 
-    return result
-
-
-def binomial_to_dict(input):
-    result = {'object': 'taxon',
-              'ht-rank': 'species',
-              'hybrid': False,
-              'rank': 'varietas'}
-    values = input.strip().split(' ', 2)
-    print values[2]
-    result['ht-epithet'] = values[0]
-    result['epithet'] = values[1]
-    import HTMLParser
-    var = HTMLParser.HTMLParser()
-    result['author'] = var.unescape(values[2])
-    print result['author']
     return result
 
 
@@ -105,7 +88,6 @@ def import_ars_grin_family(input):
     if len(lines) > 1 and lines[1].find("<h2>") != -1:
         result['accepted'] = ars_grin_line_to_object(lines[1])
     return result
-
 
 
 def ars_grin_line_to_object(input):
@@ -185,4 +167,3 @@ def ars_grin_genus_to_dict(input):
         result['accepted'] = dict_from_epithet_author(synonym_match.groups(),
                                                       'genus')
     return result
-
