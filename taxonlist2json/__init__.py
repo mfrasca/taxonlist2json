@@ -2,8 +2,6 @@ def binomial_to_dict(input):
     '''compute dictionary equivalent to input
     '''
 
-
-
     input = input.strip()
     if input in ['?', '']:
         return {}
@@ -14,8 +12,6 @@ def binomial_to_dict(input):
     values = input.split(' ', 2)
     result['ht-epithet'] = values[0]
     result['epithet'] = values[1]
-
-
     import HTMLParser
     h = HTMLParser.HTMLParser()  # rewrite with functor
     result['author'] = h.unescape(values[2])
@@ -29,7 +25,6 @@ def synonym_line_to_objects_pair(input):
     synonym = binomial_to_dict(first)
     accepted = binomial_to_dict(second)
     return (synonym, accepted)
-
 
 
 def whole_block_to_taxon_object(input):
@@ -67,7 +62,8 @@ def element_to_lines(input):
         result.append(lines[1])
 
     return result
-<<<<<<< HEAD
+
+
 def binomial_to_dict(input):
     result = {'object': 'taxon',
               'ht-rank': 'species',
@@ -82,8 +78,6 @@ def binomial_to_dict(input):
     result['author'] = var.unescape(values[2])
     print result['author']
     return result
-    
-=======
 
 
 def convert(input):

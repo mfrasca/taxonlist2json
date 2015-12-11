@@ -123,50 +123,22 @@ class BinomialToDictTest(unittest.TestCase):
         result=taxonlist2json.convert(input)
         #the object we expect
         expect = {"rank": "Species",
-              "epithet": "thyrsiflora",
-              "ht-rank": "genus",
-              "ht-epitheth": "Psychotria",
-              "hybrid": "false",
-              "author": "Ruiz & Pav."} # tambien lo vimos ayer
+                  "epithet": "thyrsiflora",
+                  "ht-rank": "genus",
+                  "ht-epitheth": "Psychotria",
+                  "hybrid": "false",
+                  "author": "Ruiz & Pav."}  # tambien lo vimos ayer
         self.assertEquals(result, expect)
 
-   # def test_translate_species_with_author(self):
-    #    "accept one string, return one value"
-        
-     #   input = """
-      #              Psychotria thyrsiflora Ruiz & Pav. 
-       #             Psychotria thyrsiflora Ruiz & Pav. = Palicourea thyrsiflora (Ruiz & Pav.) DC.
-        #            Reference: FP 1365: 226. 
-         #          """
-        #invoke the function we did not yet write
-       # result=taxonlist2json.whole_block_to_taxon_object(input)
-        #the object we expect
-            
-        #expect =({'ht-epithet': 'Psychotria', 
-         #         'rank': 'species',
-          #        'author': 'Ruiz & Pav.',
-           #       'hybrid': False,
-            #      'object': 'taxon', 
-          #        'epithet': 'thyrsiflora',
-          #        'ht-rank': 'genus'},
-          #       {'ht-epithet': 'Palicourea',
-          #        'rank': 'species',
-          #        'author': '(Ruiz & Pav.) DC.',
-          #        'hybrid': False,
-           #       'object': 'taxon',
-          #        'epithet': 'thyrsiflora',
-          #        'ht-rank': 'genus'})
-        #self.assertEquals(result, expect)
-   
     def test_binomial_to_dict_convert_genus(self):
         s = 'Abutilon amplissimun var. subpeltata Ktze'
         result = taxonlist2json.line_to_binomial(s)
         expect = {'object': 'taxon',
-                'rank': 'variestas',
-                'epithet': 'subpeltata',
-                'ht-rank': 'genus',
-                'ht-epithet': 'amplissimun',
-                'hybrid': False,
-                'author': 'Ktze',
-                }
+                  'rank': 'variestas',
+                  'epithet': 'subpeltata',
+                  'ht-rank': 'genus',
+                  'ht-epithet': 'amplissimun',
+                  'hybrid': False,
+                  'author': 'Ktze',
+                  }
         self.assertEquals(result, expect)
