@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
-<<<<<<< HEAD
-
 import unittest
 from unittest import SkipTest
 
 import taxonlist2json
 
 
-class ConverterTest(unittest.TestCase):
+class BinomialToDictTest(unittest.TestCase):
 
     def test_file_into_elements(self):
         raise SkipTest("not tested yet")
@@ -54,6 +52,21 @@ class ConverterTest(unittest.TestCase):
                   'ht-rank': 'genus'}
         self.assertEquals(result, expect)
 
+    def test_binomial_to_dict__varietas_with_autor(self):
+        s = "Abutilon amplissimum var. subpeltata Ktze."
+
+        result = taxonlist2json.line_to_binomial_to_dict(s)
+ 
+        expect = {'object': 'taxon',
+                 'rank': 'varietas',
+                 'epithet': 'subpeltata',
+                 'ht-rank': 'genus',
+                 'ht-epithet': 'amplissimum',
+                 'hybrid': False,
+                 'author': 'Ktze',
+          }
+          self.assertEquals(result, expect)
+
     def test_synonym_line_to_objects_pair(self):
         s = "Abutilon pulverulentum Ulbrich = "\
             "Sidasodes jamesonii (Baker f. ) Fryxell & Fuertes"
@@ -72,10 +85,3 @@ class ConverterTest(unittest.TestCase):
                    'epithet': 'jamesonii',
                    'ht-rank': 'genus'})
         self.assertEquals(result, expect)
-
-    
-=======
-# 
-# this file is here just to make Python understand the folder corresponds to
-# a module.
->>>>>>> e9ff63b1ee4b203b19181b8ea7ba05625927c6f3

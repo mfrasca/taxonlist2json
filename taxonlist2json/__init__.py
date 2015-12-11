@@ -12,17 +12,10 @@ def binomial_to_dict(input):
     values = input.split(' ', 2)
     result['ht-epithet'] = values[0]
     result['epithet'] = values[1]
-<<<<<<< HEAD
-    import HTMLParser
-    a = HTMLParser.HTMLParser()
-    result['author'] = a.unescape(values[2])
-    print result['author']
-=======
 
     import HTMLParser
     h = HTMLParser.HTMLParser()  # rewrite with functor
     result['author'] = h.unescape(values[2])
->>>>>>> e9ff63b1ee4b203b19181b8ea7ba05625927c6f3
 
     return result
 
