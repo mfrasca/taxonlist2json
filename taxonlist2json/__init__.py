@@ -26,7 +26,7 @@ def synonym_line_to_objects_pair(input):
     first, second = input.split('=')
     synonym = binomial_to_dict(first)
     accepted = binomial_to_dict(second)
-    return (synonym, accepted)
+    return (synonym,accepted)
 
 
 def whole_block_to_taxon_object(input):

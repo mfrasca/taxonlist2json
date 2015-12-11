@@ -1,24 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-#from unittest import SkipTest
+from unittest import SkipTest
 
 import taxonlist2json
 
 
 class BinomialToDictTest(unittest.TestCase):
-
-    def test_binomial_to_dict__varietas_with_author(self):
-        s = 'Abutilon amplissimum var. subpeltata Ktze.'
-        result = taxonlist2json.binomial_to_dict(s)
-        expect = {'object': 'taxon',
-                  'rank': 'varietas',  # should decide name of rank
-                  'ht-rank': 'species',
-                  'epithet': 'subpeltata',
-                  'ht-epithet': 'Abutilon amplissimum',  # COMMENT THIS
-                  'author': "Ktze.",
-                  }
-        self.assertEquals(result, expect)
+class ConverterTest(unittest.TestCase):
 
     def test_binomial_to_dict__with_simple_author(self):
         s = ' Abuta velutina Gleason'
@@ -45,6 +34,20 @@ class BinomialToDictTest(unittest.TestCase):
                   'author': '(Cav.) Sweet',
                   }
         self.assertEquals(result, expect)
+   def test_binomial_to_dict__varietas_with_autor(self):
+        s = "Abutilon amplissimum var. subpeltata Ktze."
+ 
+        result = taxonlist2json.line_to_binomial_to_dict(s)
+ 
+        expect = {'object': 'taxon',
+                 'rank': 'varietas',
+                 'epithet': 'subpeltata',
+                 'ht-rank': 'genus',
+                 'ht-epithet': 'amplissimum',
+                 'hybrid': False,
+                 'author': 'Ktze',
+          }
+          self.assertEquals(result, expect)
 
     def test_binomial_to_dict__author_with_utf8_char(self):
         s = "Abutilon nudiflorum (L'H&eacute;r.) Sweet"
@@ -158,9 +161,8 @@ Reference: Ritter, F., 1981: 1489; Hunt, D., 1992: 89.
                                'author': '(Vaupel) Buxb.',
                                'hybrid': False,
                                },
-                  } 
+                  }
         self.assertEquals(result, expect)
-
 
     def test_whole_block_to_taxon_object__without_synonym(self):
         s = '''\
@@ -185,6 +187,7 @@ Osmorhiza mexicana Griseb.
                   }
         self.assertEquals(result, expect)
 
+
 class ImportArsGrinFamily(unittest.TestCase):
     def test_import_ars_grin_family__simple(self):
         s = '''<i>Acanthaceae</i> Juss., nom. cons.</h1>'''
@@ -208,10 +211,7 @@ class ImportArsGrinFamily(unittest.TestCase):
                                }
                   }
         self.assertEquals(result, expect)
-<<<<<<< HEAD
         
-=======
->>>>>>> e9ff63b1ee4b203b19181b8ea7ba05625927c6f3
 
     def test_import_ars_grin_family__illegitimus(self):
         s = '''<i>Abaminaceae</i> J. Agardh, nom. illeg.</h1>
