@@ -12,13 +12,10 @@ def binomial_to_dict(input):
     values = input.split(' ', 2)
     result['ht-epithet'] = values[0]
     result['epithet'] = values[1]
+
     import HTMLParser
     h = HTMLParser.HTMLParser()  # rewrite with functor
-
-
-
     result['author'] = h.unescape(values[2])
-
     return result
 
 
@@ -28,7 +25,7 @@ def synonym_line_to_objects_pair(input):
     first, second = input.split('=')
     synonym = binomial_to_dict(first)
     accepted = binomial_to_dict(second)
-    return (synonym,accepted)
+    return (synonym, accepted)
 
 
 def whole_block_to_taxon_object(input):
