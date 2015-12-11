@@ -49,7 +49,7 @@ class BinomialToDictTest(unittest.TestCase):
                   'hybrid': False,
                   'object': 'taxon',
                   'epithet': 'nudiflorum',
-                  'ht-rank': 'genus'}
+                  'ht-rank': 'genus',}
         self.assertEquals(result, expect)
 
     def test_binomial_to_dict__varietas_with_autor(self):
