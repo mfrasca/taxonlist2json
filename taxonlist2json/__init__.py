@@ -12,7 +12,6 @@ def binomial_to_dict(input):
     values = input.split(' ', 2)
     result['ht-epithet'] = values[0]
     result['epithet'] = values[1]
-
     import HTMLParser
     h = HTMLParser.HTMLParser()  # rewrite with functor
 
@@ -61,9 +60,11 @@ def element_to_lines(input):
     lines = [i for i in lines if i != '']
     ## we definitely use the first non-empty line
     result = [lines[0]]
+    result1 = line_to_binomial(lines[0])
     ## and the second, if it's a synonym definition
     if lines[1].find('=') != -1:
         result.append(lines[1])
+
     return result
 <<<<<<< HEAD
 def binomial_to_dict(input):
