@@ -220,7 +220,7 @@ class ImportArsGrinFamily(unittest.TestCase):
                   'accepted': {'object': 'taxon',
                                'rank': 'family',
                                'epithet': 'Pinaceae',
-                               } 
+                               }
                   }
         self.assertEquals(result, expect)
 
