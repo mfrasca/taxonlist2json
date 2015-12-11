@@ -35,6 +35,18 @@ class BinomialToDictTest(unittest.TestCase):
                   }
         self.assertEquals(result, expect)
 
+    def test_binomial_to_dict__with_variedad_with_author(self):
+        result = taxonlist2json.binomial_to_dict(
+            'Abutilon amplissimum var. subpeltata Ktze')
+        expect = {'object': 'taxon',
+                  'rank': 'variedad',
+                  'epithet': 'amplissimum',
+                  'ht-rank': 'genus',
+                  'ht-epithet': 'Abutilon amplissimum',          
+		  'author': 'Ktze',
+                  }
+        self.assertEquals(result, expect)
+
     def test_binomial_to_dict__with_simple_author(self):
         s = ' Abuta velutina Gleason'
         result = taxonlist2json.binomial_to_dict(s)
